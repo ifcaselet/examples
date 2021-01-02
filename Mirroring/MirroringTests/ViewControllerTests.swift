@@ -2,32 +2,24 @@
 import XCTest
 @testable import Mirroring
 
-class MirroringTests: XCTestCase {
+class ViewControllerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    /// Test that the **private** `purchaseButton` is hidden if the `BoardGame` cannot be purchased.
+    ///
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let monopoly = BoardGame(name: "Monopoly",
+                                 numberOfPlayers: 1_532,
+                                 availableForPurchase: false)
+
+        // Load the view to test.
+        let viewController = ViewController(boardGame: monopoly)
+        viewController.loadViewIfNeeded()
+
+        // Grab the private `purchaseButton` using Mirror.
+        let mirror = Mirror(reflecting: viewController)
+        let purchaseButton = mirror.descendant("purchaseButton") as! UIButton
+
+        // We can now test the `purchaseButton` normally.
+        XCTAssertTrue(purchaseButton.isHidden)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
-}
-
-struct ViewControllerMirror {
-    let nameLabel: UILabel
-    let numberOfPlayersLabel: UILabel
-    let purchaseButton: UIButton
 }
