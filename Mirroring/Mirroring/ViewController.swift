@@ -22,13 +22,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         nameLabel.text = boardGame.name
-        numberOfPlayersLabel.text = {
-            if boardGame.numberOfPlayers == 1 {
-                return "Single player only."
-            } else {
-                return "Up to \(boardGame.numberOfPlayers) players."
-            }
-        }()
+        numberOfPlayersLabel.text = "Up to \(boardGame.numberOfPlayers) players."
         purchaseButton.isHidden = !boardGame.availableForPurchase
     }
 }
