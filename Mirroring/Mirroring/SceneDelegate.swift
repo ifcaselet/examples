@@ -12,11 +12,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        window = UIWindow(windowScene: windowScene)
+        let chess = BoardGame(name: "Chess", numberOfPlayers: 2, availableForPurchase: true)
+        let viewController = ViewController(boardGame: chess)
 
-        let viewController = ViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
+
+        window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navigationController
+
         window?.makeKeyAndVisible()
     }
 
