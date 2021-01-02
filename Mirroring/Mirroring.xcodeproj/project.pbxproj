@@ -14,7 +14,6 @@
 		9A38AB75259FE936001A9252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A38AB74259FE936001A9252 /* Assets.xcassets */; };
 		9A38AB78259FE936001A9252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A38AB76259FE936001A9252 /* LaunchScreen.storyboard */; };
 		9A38AB83259FE936001A9252 /* MirroringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB82259FE936001A9252 /* MirroringTests.swift */; };
-		9A38AB8E259FE936001A9252 /* MirroringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB8D259FE936001A9252 /* MirroringUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,6 @@
 		9A38AB82259FE936001A9252 /* MirroringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroringTests.swift; sourceTree = "<group>"; };
 		9A38AB84259FE936001A9252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A38AB89259FE936001A9252 /* MirroringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirroringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A38AB8D259FE936001A9252 /* MirroringUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroringUITests.swift; sourceTree = "<group>"; };
-		9A38AB8F259FE936001A9252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +78,6 @@
 			children = (
 				9A38AB6A259FE934001A9252 /* Mirroring */,
 				9A38AB81259FE936001A9252 /* MirroringTests */,
-				9A38AB8C259FE936001A9252 /* MirroringUITests */,
 				9A38AB69259FE934001A9252 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,15 +113,6 @@
 				9A38AB84259FE936001A9252 /* Info.plist */,
 			);
 			path = MirroringTests;
-			sourceTree = "<group>";
-		};
-		9A38AB8C259FE936001A9252 /* MirroringUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9A38AB8D259FE936001A9252 /* MirroringUITests.swift */,
-				9A38AB8F259FE936001A9252 /* Info.plist */,
-			);
-			path = MirroringUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A38AB8E259FE936001A9252 /* MirroringUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
