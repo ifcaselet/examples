@@ -25,3 +25,9 @@ class MirroringTests: XCTestCase {
     }
 
 }
+
+struct ViewControllerMirror {
+    let nameLabel: UILabel
+    let numberOfPlayersLabel: UILabel
+    let purchaseButton: UIButton
+}

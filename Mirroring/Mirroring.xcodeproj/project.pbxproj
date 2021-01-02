@@ -14,7 +14,7 @@
 		9A38AB70259FE934001A9252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB6F259FE934001A9252 /* ViewController.swift */; };
 		9A38AB75259FE936001A9252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A38AB74259FE936001A9252 /* Assets.xcassets */; };
 		9A38AB78259FE936001A9252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A38AB76259FE936001A9252 /* LaunchScreen.storyboard */; };
-		9A38AB83259FE936001A9252 /* MirroringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB82259FE936001A9252 /* MirroringTests.swift */; };
+		9A38AB83259FE936001A9252 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB82259FE936001A9252 /* ViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		9A38AB77259FE936001A9252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A38AB79259FE936001A9252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A38AB7E259FE936001A9252 /* MirroringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirroringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A38AB82259FE936001A9252 /* MirroringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroringTests.swift; sourceTree = "<group>"; };
+		9A38AB82259FE936001A9252 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		9A38AB84259FE936001A9252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A38AB89259FE936001A9252 /* MirroringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirroringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -112,7 +112,7 @@
 		9A38AB81259FE936001A9252 /* MirroringTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A38AB82259FE936001A9252 /* MirroringTests.swift */,
+				9A38AB82259FE936001A9252 /* ViewControllerTests.swift */,
 				9A38AB84259FE936001A9252 /* Info.plist */,
 			);
 			path = MirroringTests;
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A38AB83259FE936001A9252 /* MirroringTests.swift in Sources */,
+				9A38AB83259FE936001A9252 /* ViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
