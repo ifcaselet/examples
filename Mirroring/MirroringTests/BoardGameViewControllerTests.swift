@@ -2,7 +2,7 @@
 import XCTest
 @testable import Mirroring
 
-class ViewControllerTests: XCTestCase {
+class BoardGameViewControllerTests: XCTestCase {
 
     /// Test that the **private** `purchaseButton` is hidden if the `BoardGame` cannot be purchased.
     ///
@@ -12,7 +12,7 @@ class ViewControllerTests: XCTestCase {
                                  availableForPurchase: false)
 
         // Load the view to test.
-        let viewController = ViewController(boardGame: monopoly)
+        let viewController = BoardGameViewController(boardGame: monopoly)
         viewController.loadViewIfNeeded()
 
         // Grab the private `purchaseButton` using Mirror.

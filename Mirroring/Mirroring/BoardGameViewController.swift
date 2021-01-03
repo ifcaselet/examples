@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BoardGameViewController: UIViewController {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var numberOfPlayersLabel: UILabel!

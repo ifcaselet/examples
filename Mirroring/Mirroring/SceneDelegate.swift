@@ -10,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Use dummy BoardGame
         let chess = BoardGame(name: "Chess", numberOfPlayers: 2, availableForPurchase: true)
-        let viewController = ViewController(boardGame: chess)
+        let viewController = BoardGameViewController(boardGame: chess)
 
         let navigationController = UINavigationController(rootViewController: viewController)
 

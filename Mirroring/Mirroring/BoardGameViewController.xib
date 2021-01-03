@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="Mirroring" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardGameViewController" customModule="Mirroring" customModuleProvider="target">
             <connections>
                 <outlet property="nameLabel" destination="PxS-1R-Mbg" id="aKF-Sa-dd0"/>
                 <outlet property="numberOfPlayersLabel" destination="5Ph-Ck-vQ7" id="HnS-wE-GCC"/>

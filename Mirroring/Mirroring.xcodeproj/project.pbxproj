@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A16248825A0015700424553 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A16248725A0015700424553 /* ViewController.xib */; };
+		9A16248825A0015700424553 /* BoardGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A16248725A0015700424553 /* BoardGameViewController.xib */; };
 		9A16249325A0026400424553 /* BoardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16249225A0026400424553 /* BoardGame.swift */; };
 		9A38AB6C259FE934001A9252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB6B259FE934001A9252 /* AppDelegate.swift */; };
 		9A38AB6E259FE934001A9252 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB6D259FE934001A9252 /* SceneDelegate.swift */; };
-		9A38AB70259FE934001A9252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB6F259FE934001A9252 /* ViewController.swift */; };
+		9A38AB70259FE934001A9252 /* BoardGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB6F259FE934001A9252 /* BoardGameViewController.swift */; };
 		9A38AB75259FE936001A9252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A38AB74259FE936001A9252 /* Assets.xcassets */; };
 		9A38AB78259FE936001A9252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A38AB76259FE936001A9252 /* LaunchScreen.storyboard */; };
-		9A38AB83259FE936001A9252 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB82259FE936001A9252 /* ViewControllerTests.swift */; };
+		9A38AB83259FE936001A9252 /* BoardGameViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A38AB82259FE936001A9252 /* BoardGameViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,17 +35,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A16248725A0015700424553 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		9A16248725A0015700424553 /* BoardGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardGameViewController.xib; sourceTree = "<group>"; };
 		9A16249225A0026400424553 /* BoardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGame.swift; sourceTree = "<group>"; };
 		9A38AB68259FE934001A9252 /* Mirroring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mirroring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A38AB6B259FE934001A9252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A38AB6D259FE934001A9252 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9A38AB6F259FE934001A9252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9A38AB6F259FE934001A9252 /* BoardGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameViewController.swift; sourceTree = "<group>"; };
 		9A38AB74259FE936001A9252 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A38AB77259FE936001A9252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A38AB79259FE936001A9252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A38AB7E259FE936001A9252 /* MirroringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirroringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A38AB82259FE936001A9252 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		9A38AB82259FE936001A9252 /* BoardGameViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardGameViewControllerTests.swift; sourceTree = "<group>"; };
 		9A38AB84259FE936001A9252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A38AB89259FE936001A9252 /* MirroringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirroringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,14 +97,14 @@
 		9A38AB6A259FE934001A9252 /* Mirroring */ = {
 			isa = PBXGroup;
 			children = (
+				9A38AB6F259FE934001A9252 /* BoardGameViewController.swift */,
+				9A16248725A0015700424553 /* BoardGameViewController.xib */,
+				9A16249225A0026400424553 /* BoardGame.swift */,
 				9A38AB6B259FE934001A9252 /* AppDelegate.swift */,
 				9A38AB6D259FE934001A9252 /* SceneDelegate.swift */,
-				9A38AB6F259FE934001A9252 /* ViewController.swift */,
 				9A38AB74259FE936001A9252 /* Assets.xcassets */,
 				9A38AB76259FE936001A9252 /* LaunchScreen.storyboard */,
 				9A38AB79259FE936001A9252 /* Info.plist */,
-				9A16248725A0015700424553 /* ViewController.xib */,
-				9A16249225A0026400424553 /* BoardGame.swift */,
 			);
 			path = Mirroring;
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 		9A38AB81259FE936001A9252 /* MirroringTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A38AB82259FE936001A9252 /* ViewControllerTests.swift */,
+				9A38AB82259FE936001A9252 /* BoardGameViewControllerTests.swift */,
 				9A38AB84259FE936001A9252 /* Info.plist */,
 			);
 			path = MirroringTests;
@@ -223,7 +223,7 @@
 			files = (
 				9A38AB78259FE936001A9252 /* LaunchScreen.storyboard in Resources */,
 				9A38AB75259FE936001A9252 /* Assets.xcassets in Resources */,
-				9A16248825A0015700424553 /* ViewController.xib in Resources */,
+				9A16248825A0015700424553 /* BoardGameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A16249325A0026400424553 /* BoardGame.swift in Sources */,
-				9A38AB70259FE934001A9252 /* ViewController.swift in Sources */,
+				9A38AB70259FE934001A9252 /* BoardGameViewController.swift in Sources */,
 				9A38AB6C259FE934001A9252 /* AppDelegate.swift in Sources */,
 				9A38AB6E259FE934001A9252 /* SceneDelegate.swift in Sources */,
 			);
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A38AB83259FE936001A9252 /* ViewControllerTests.swift in Sources */,
+				9A38AB83259FE936001A9252 /* BoardGameViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
