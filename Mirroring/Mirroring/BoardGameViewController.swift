@@ -23,6 +23,8 @@ class BoardGameViewController: UIViewController {
 
         nameLabel.text = boardGame.name
         numberOfPlayersLabel.text = "Up to \(boardGame.numberOfPlayers) players."
+
+        // Hide purchase button if the `BoardGame` is not available.
         purchaseButton.isHidden = !boardGame.availableForPurchase
     }
 }
