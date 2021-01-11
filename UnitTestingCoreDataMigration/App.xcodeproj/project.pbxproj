@@ -600,7 +600,7 @@
 				9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */,
 				9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */,
 			);
-			currentVersion = 9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */;
+			currentVersion = 9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */;
 			path = App.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
