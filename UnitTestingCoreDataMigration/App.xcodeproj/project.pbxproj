@@ -41,7 +41,7 @@
 		9A8AA5AA25ABE6E000418C23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9A8AA5AC25ABE6E000418C23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A8AA5AF25ABE6E000418C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A8AA5B225ABE6E000418C23 /* App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App.xcdatamodel; sourceTree = "<group>"; };
+		9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App V1.xcdatamodel"; sourceTree = "<group>"; };
 		9A8AA5B425ABE6E100418C23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A8AA5B725ABE6E100418C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A8AA5B925ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +51,7 @@
 		9A8AA5C925ABE6E100418C23 /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8AA5CD25ABE6E100418C23 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
 		9A8AA5CF25ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App V2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,9 +597,10 @@
 		9A8AA5B125ABE6E000418C23 /* App.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9A8AA5B225ABE6E000418C23 /* App.xcdatamodel */,
+				9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */,
+				9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */,
 			);
-			currentVersion = 9A8AA5B225ABE6E000418C23 /* App.xcdatamodel */;
+			currentVersion = 9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */;
 			path = App.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
