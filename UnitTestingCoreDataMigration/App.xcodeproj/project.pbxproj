@@ -16,6 +16,7 @@
 		9A8AA5B825ABE6E100418C23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */; };
 		9A8AA5C325ABE6E100418C23 /* MigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AA5C225ABE6E100418C23 /* MigrationTests.swift */; };
 		9A8AA5CE25ABE6E100418C23 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AA5CD25ABE6E100418C23 /* AppUITests.swift */; };
+		9AE3432125ABF7640027965B /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3432025ABF7640027965B /* CoreDataUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		9A8AA5CD25ABE6E100418C23 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
 		9A8AA5CF25ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App V2.xcdatamodel"; sourceTree = "<group>"; };
+		9AE3432025ABF7640027965B /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				9A8AA5C225ABE6E100418C23 /* MigrationTests.swift */,
 				9A8AA5C425ABE6E100418C23 /* Info.plist */,
+				9AE3432025ABF7640027965B /* CoreDataUtils.swift */,
 			);
 			path = AppTests;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE3432125ABF7640027965B /* CoreDataUtils.swift in Sources */,
 				9A8AA5C325ABE6E100418C23 /* MigrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
