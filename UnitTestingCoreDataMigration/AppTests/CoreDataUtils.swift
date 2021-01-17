@@ -4,6 +4,7 @@ import XCTest
 @testable import App
 
 private let momdURL = Bundle(for: ViewController.self).url(forResource: "App", withExtension: "momd")!
+private let storeType = NSSQLiteStoreType
 
 func startPersistentContainer(_ versionName: String) throws -> NSPersistentContainer {
     let storeURL = makeTemporaryStoreURL()
@@ -22,7 +23,7 @@ private func makePersistentContainer(storeURL: URL,
     let description = NSPersistentStoreDescription(url: storeURL)
     // Do not automatically migrate because we will be manually migrating (and testing) the store.
     description.shouldMigrateStoreAutomatically = false
-    description.type = NSSQLiteStoreType
+    description.type = storeType
 
     let container = NSPersistentContainer(name: "App Container", managedObjectModel: managedObjectModel)
     container.persistentStoreDescriptions = [description]
