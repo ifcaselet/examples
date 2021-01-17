@@ -37,6 +37,12 @@ final class MigrationTests: XCTestCase {
         // Then
         // Prove the existing `BoardGame` data is still there.
         XCTAssertEqual(try countOfBoardGames(in: targetContainer.viewContext), 2)
+
+        // And we can use the new availableForPurchase property
+        let boardGame = insertBoardGame(name: "Monopoly", numberOfPlayers: 4, into: targetContainer.viewContext)
+        boardGame.setValue(true, forKey: "availableForPurchase")
+
+        XCTAssertNoThrow(try targetContainer.viewContext.save())
     }
 
     /// Unit test for the first model version.
