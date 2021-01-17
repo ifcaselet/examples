@@ -6,10 +6,7 @@ import XCTest
 private let momdURL = Bundle(for: ViewController.self).url(forResource: "App", withExtension: "momd")!
 
 func startPersistentContainer(_ versionName: String) throws -> NSPersistentContainer {
-    let storeURL = NSURL(fileURLWithPath: NSTemporaryDirectory())
-        .appendingPathComponent(UUID().uuidString)!
-        .appendingPathExtension("sqlite")
-
+    let storeURL = makeTemporaryStoreURL()
     let model = managedObjectModel(versionName: versionName)
 
     let container = makePersistentContainer(storeURL: storeURL, managedObjectModel: model)
@@ -38,3 +35,8 @@ func managedObjectModel(versionName: String) -> NSManagedObjectModel {
     return NSManagedObjectModel(contentsOf: url)!
 }
 
+private func makeTemporaryStoreURL() -> URL {
+    URL(fileURLWithPath: NSTemporaryDirectory())
+        .appendingPathComponent(UUID().uuidString)
+        .appendingPathExtension("sqlite")
+}
