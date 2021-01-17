@@ -4,14 +4,42 @@ import CoreData
 
 final class MigrationTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    /// Unit test for migrating from V1 to V2.
+    func testMigratingFromV1ToV2AddsTheAvailableForPurchaseProperty() throws {
+        // Given
+        let sourceContainer = try startPersistentContainer("App V1")
+
+        let entityDescription = NSEntityDescription.entity(forEntityName: "BoardGame", in: sourceContainer.viewContext)!
+        XCTAssertFalse(entityDescription.propertiesByName.keys.contains("availableForPurchase"))
+
+        try sourceContainer.viewContext.save()
+
+        // When
+        let targetContainer = try migrate(container: sourceContainer, to: "App V2")
+
+        let migratedEntityDescription =
+            NSEntityDescription.entity(forEntityName: "BoardGame", in: targetContainer.viewContext)!
+        XCTAssertTrue(migratedEntityDescription.propertiesByName.keys.contains("availableForPurchase"))
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testMigratingFromV1ToV2KeepsTheExistingData() throws {
+        // Given
+        let sourceContainer = try startPersistentContainer("App V1")
+
+        _ = insertBoardGame(name: "Chess", numberOfPlayers: 2, into: sourceContainer.viewContext)
+        _ = insertBoardGame(name: "Scrabble", numberOfPlayers: 4, into: sourceContainer.viewContext)
+
+        try sourceContainer.viewContext.save()
+
+        // When
+        let targetContainer = try migrate(container: sourceContainer, to: "App V2")
+
+        // Then
+        // Prove the existing `BoardGame` data is still there.
+        XCTAssertEqual(try countOfBoardGames(in: targetContainer.viewContext), 2)
     }
 
+    /// Unit test for the first model version.
     func testV1AddsTheBoardGameEntity() throws {
         // Given
         let container = try startPersistentContainer("App V1")
