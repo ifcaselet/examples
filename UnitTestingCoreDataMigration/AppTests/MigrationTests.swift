@@ -1,4 +1,5 @@
 import XCTest
+import CoreData
 @testable import App
 
 final class MigrationTests: XCTestCase {
@@ -11,16 +12,36 @@ final class MigrationTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testV1AddsTheBoardGameEntity() throws {
+        // Given
+        let container = try startPersistentContainer("App V1")
+
+        // Confirm that we can interact with `container` and that there are no `BoardGames`
+        // in the `NSManagedObjectContext`.
+        XCTAssertEqual(try countOfBoardGames(in: container.viewContext), 0)
+
+        // When
+        _ = insertBoardGame(name: "Chess", numberOfPlayers: 2, into: container.viewContext)
+
+        // Then
+        // Prove our expectations of V1 that it adds a useable `BoardGame` entity.
+        XCTAssertEqual(try countOfBoardGames(in: container.viewContext), 1)
+    }
+}
+
+private extension MigrationTests {
+    func insertBoardGame(name: String, numberOfPlayers: Int, into context: NSManagedObjectContext) -> NSManagedObject {
+        let obj = NSEntityDescription.insertNewObject(forEntityName: "BoardGame", into: context)
+        obj.setValue(name, forKey: "name")
+        obj.setValue(numberOfPlayers, forKey: "numberOfPlayers")
+        return obj
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    func countOfBoardGames(in context: NSManagedObjectContext) throws -> Int {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BoardGame")
+        fetchRequest.includesSubentities = false
+        fetchRequest.resultType = .countResultType
 
+        return try context.count(for: fetchRequest)
+    }
 }
