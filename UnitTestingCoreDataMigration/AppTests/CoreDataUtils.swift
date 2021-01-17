@@ -17,7 +17,7 @@ func startPersistentContainer(_ versionName: String) throws -> NSPersistentConta
     return container
 }
 
-func makePersistentContainer(storeURL: URL,
+private func makePersistentContainer(storeURL: URL,
                              managedObjectModel: NSManagedObjectModel) -> NSPersistentContainer {
     let description = NSPersistentStoreDescription(url: storeURL)
     // Do not automatically migrate because we will be manually migrating (and testing) the store.
@@ -30,7 +30,7 @@ func makePersistentContainer(storeURL: URL,
     return container
 }
 
-func managedObjectModel(versionName: String) -> NSManagedObjectModel {
+private func managedObjectModel(versionName: String) -> NSManagedObjectModel {
     let url = momdURL.appendingPathComponent(versionName).appendingPathExtension("mom")
     return NSManagedObjectModel(contentsOf: url)!
 }
