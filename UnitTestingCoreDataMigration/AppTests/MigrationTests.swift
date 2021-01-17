@@ -26,8 +26,8 @@ final class MigrationTests: XCTestCase {
         // Given
         let sourceContainer = try startPersistentContainer("App V1")
 
-        _ = insertBoardGame(name: "Chess", numberOfPlayers: 2, into: sourceContainer.viewContext)
-        _ = insertBoardGame(name: "Scrabble", numberOfPlayers: 4, into: sourceContainer.viewContext)
+        insertBoardGame(name: "Chess", numberOfPlayers: 2, into: sourceContainer.viewContext)
+        insertBoardGame(name: "Scrabble", numberOfPlayers: 4, into: sourceContainer.viewContext)
 
         try sourceContainer.viewContext.save()
 
@@ -49,7 +49,7 @@ final class MigrationTests: XCTestCase {
         XCTAssertEqual(try countOfBoardGames(in: container.viewContext), 0)
 
         // When
-        _ = insertBoardGame(name: "Chess", numberOfPlayers: 2, into: container.viewContext)
+        insertBoardGame(name: "Chess", numberOfPlayers: 2, into: container.viewContext)
 
         // Then
         // Prove our expectations of V1 that it adds a useable `BoardGame` entity.
@@ -58,6 +58,7 @@ final class MigrationTests: XCTestCase {
 }
 
 private extension MigrationTests {
+    @discardableResult
     func insertBoardGame(name: String, numberOfPlayers: Int, into context: NSManagedObjectContext) -> NSManagedObject {
         let obj = NSEntityDescription.insertNewObject(forEntityName: "BoardGame", into: context)
         obj.setValue(name, forKey: "name")
