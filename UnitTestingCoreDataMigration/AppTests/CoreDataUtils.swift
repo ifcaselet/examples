@@ -10,7 +10,6 @@ private let storeType = NSSQLiteStoreType
 /// temporary directory.
 ///
 /// - Parameter versionName: The name of the model (`.xcdatamodel`). For example, `"App V1"`.
-///
 /// - Returns: An `NSPersistentContainer` that is loaded and ready for usage.
 func startPersistentContainer(_ versionName: String) throws -> NSPersistentContainer {
     let storeURL = makeTemporaryStoreURL()
@@ -74,6 +73,8 @@ func migrate(container: NSPersistentContainer, to versionName: String) throws ->
 private func makePersistentContainer(storeURL: URL,
                                      managedObjectModel: NSManagedObjectModel) -> NSPersistentContainer {
     let description = NSPersistentStoreDescription(url: storeURL)
+    // Do not automatically migrate because we will be manually migrating (and testing) the store.
+    description.shouldMigrateStoreAutomatically = false
     description.type = storeType
 
     let container = NSPersistentContainer(name: "App Container", managedObjectModel: managedObjectModel)
