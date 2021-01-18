@@ -72,7 +72,7 @@ func migrate(container: NSPersistentContainer, to versionName: String) throws ->
 }
 
 private func makePersistentContainer(storeURL: URL,
-                             managedObjectModel: NSManagedObjectModel) -> NSPersistentContainer {
+                                     managedObjectModel: NSManagedObjectModel) -> NSPersistentContainer {
     let description = NSPersistentStoreDescription(url: storeURL)
     description.type = storeType
 
