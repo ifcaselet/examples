@@ -15,8 +15,6 @@ final class MigrationTests: XCTestCase {
         let entityDescription = NSEntityDescription.entity(forEntityName: "BoardGame", in: sourceContainer.viewContext)!
         XCTAssertFalse(entityDescription.propertiesByName.keys.contains("availableForPurchase"))
 
-        try sourceContainer.viewContext.save()
-
         // When
         let targetContainer = try migrate(container: sourceContainer, to: "App V2")
 
