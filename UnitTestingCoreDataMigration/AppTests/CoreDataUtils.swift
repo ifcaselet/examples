@@ -60,7 +60,7 @@ func migrate(container: NSPersistentContainer, to versionName: String) throws ->
                                       destinationType: storeType,
                                       destinationOptions: nil)
 
-    // Load the store at `destinationStoreURL` and return the container.
+    // Load the store at `destinationStoreURL` and return the migrated container.
     let destinationContainer = makePersistentContainer(storeURL: destinationStoreURL,
                                                        managedObjectModel: destinationModel)
     destinationContainer.loadPersistentStores { _, error in
