@@ -73,7 +73,9 @@ func migrate(container: NSPersistentContainer, to versionName: String) throws ->
 private func makePersistentContainer(storeURL: URL,
                                      managedObjectModel: NSManagedObjectModel) -> NSPersistentContainer {
     let description = NSPersistentStoreDescription(url: storeURL)
-    // Do not automatically migrate because we will be manually migrating (and testing) the store.
+    // In order to have more control over when the migration happens, we're setting
+    // `shouldMigrateStoreAutomatically` to `false` to stop `NSPersistentContainer`
+    // from **automatically** migrating the store. Leaving this as `true` might result in false positives.
     description.shouldMigrateStoreAutomatically = false
     description.type = storeType
 
