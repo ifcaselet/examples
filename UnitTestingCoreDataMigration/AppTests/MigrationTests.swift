@@ -11,13 +11,14 @@ final class MigrationTests: XCTestCase {
         // Given
         let sourceContainer = try startPersistentContainer("App V1")
 
-        // Check that the `availableForPurchase` property does not exist in V1.
+        // Precondition: The `availableForPurchase` property does not exist in V1.
         let entityDescription = NSEntityDescription.entity(forEntityName: "BoardGame", in: sourceContainer.viewContext)!
         XCTAssertFalse(entityDescription.propertiesByName.keys.contains("availableForPurchase"))
 
         // When
         let targetContainer = try migrate(container: sourceContainer, to: "App V2")
 
+        // Then
         // Validate that the `availableForPurchase` property is now available.
         let migratedEntityDescription =
             NSEntityDescription.entity(forEntityName: "BoardGame", in: targetContainer.viewContext)!
