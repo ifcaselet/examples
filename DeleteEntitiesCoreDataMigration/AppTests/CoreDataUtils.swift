@@ -3,7 +3,8 @@ import XCTest
 
 @testable import App
 
-private let momdURL = Bundle(for: ViewController.self).url(forResource: "App", withExtension: "momd")!
+private let mainBundle = Bundle(for: ViewController.self)
+private let momdURL = mainBundle.url(forResource: "App", withExtension: "momd")!
 private let storeType = NSSQLiteStoreType
 
 /// Create and load a store using the given model version. The store will be located in a
@@ -44,10 +45,9 @@ func migrate(container: NSPersistentContainer, to versionName: String) throws ->
     // will be located.
     let destinationStoreURL = makeTemporaryStoreURL()
 
-    // Infer a mapping model between the source and destination `NSManagedObjectModels`.
-    // Modify this line if you use a custom mapping model.
-    let mappingModel = try NSMappingModel.inferredMappingModel(forSourceModel: sourceModel,
-                                                               destinationModel: destinationModel)
+    let mappingModel = NSMappingModel(from: [mainBundle],
+                                      forSourceModel: sourceModel,
+                                      destinationModel: destinationModel)!
 
     let migrationManager = NSMigrationManager(sourceModel: sourceModel,
                                               destinationModel: destinationModel)
