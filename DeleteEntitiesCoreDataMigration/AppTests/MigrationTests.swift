@@ -17,7 +17,7 @@ final class MigrationTests: XCTestCase {
         let targetContainer = try migrate(container: sourceContainer, to: "App V2")
 
         // Then
-        XCTAssertEqual(try countOfPosts(in: targetContainer.viewContext), 1)
+        XCTAssertEqual(try countOfPosts(in: targetContainer.viewContext), 0)
         XCTAssertEqual(try countOfComments(in: targetContainer.viewContext), 1)
     }
 }
@@ -49,6 +49,7 @@ private extension MigrationTests {
         return try context.count(for: fetchRequest)
     }
 
+    /// Return the total number of `Comment` objects inside the given `context`.
     func countOfComments(in context: NSManagedObjectContext) throws -> Int {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         fetchRequest.includesSubentities = false
