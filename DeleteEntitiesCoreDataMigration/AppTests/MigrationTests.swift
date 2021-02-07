@@ -4,6 +4,7 @@ import CoreData
 
 final class MigrationTests: XCTestCase {
 
+    /// Tests that when migrating from V1 to V2, the `Post` objects are deleted.
     func testMigratingFromV1ToV2DeletesThePosts() throws {
         // Given
         let sourceContainer = try startPersistentContainer("App V1")
@@ -17,7 +18,9 @@ final class MigrationTests: XCTestCase {
         let targetContainer = try migrate(container: sourceContainer, to: "App V2")
 
         // Then
+        // The post should have been deleted.
         XCTAssertEqual(try countOfPosts(in: targetContainer.viewContext), 0)
+        // The comment is left intact.
         XCTAssertEqual(try countOfComments(in: targetContainer.viewContext), 1)
     }
 }
