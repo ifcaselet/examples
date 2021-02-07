@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A29B7DD25D0A07600A371B0 /* App V2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App V2.xcdatamodel"; sourceTree = "<group>"; };
 		9A8AA5A525ABE6E000418C23 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8AA5A825ABE6E000418C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A8AA5AA25ABE6E000418C23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		9A8AA5C225ABE6E100418C23 /* MigrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationTests.swift; sourceTree = "<group>"; };
 		9A8AA5C425ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8AA5C925ABE6E100418C23 /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App V2.xcdatamodel"; sourceTree = "<group>"; };
 		9AE3432025ABF7640027965B /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -587,10 +587,10 @@
 		9A8AA5B125ABE6E000418C23 /* App.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */,
+				9A29B7DD25D0A07600A371B0 /* App V2.xcdatamodel */,
 				9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */,
 			);
-			currentVersion = 9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */;
+			currentVersion = 9A29B7DD25D0A07600A371B0 /* App V2.xcdatamodel */;
 			path = App.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
