@@ -71,7 +71,7 @@
         <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z106"></relationship>
     </object>
     <object type="XDDEVENTITYMAPPING" id="z106">
-        <attribute name="migrationpolicyclassname" type="string"></attribute>
+        <attribute name="migrationpolicyclassname" type="string">App.DeleteObjectsMigrationPolicy</attribute>
         <attribute name="sourcename" type="string">Post</attribute>
         <attribute name="mappingtypename" type="string">Undefined</attribute>
         <attribute name="mappingnumber" type="int16">2</attribute>
