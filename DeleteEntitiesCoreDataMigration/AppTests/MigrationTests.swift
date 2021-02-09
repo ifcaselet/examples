@@ -10,7 +10,8 @@ final class MigrationTests: XCTestCase {
         let v1Model = managedObjectModel(versionName: "App V1")
         let v2Model = managedObjectModel(versionName: "App V2")
 
-        let container = loadPersistentContainer(storeURL: storeURL, model: v1Model)
+        let container = loadPersistentContainer(storeURL: storeURL,
+                                                model: v1Model)
 
         let post = insertPost(title: "Alpha", into: container.viewContext)
         insertComment(message: "a comment", post: post, into: container.viewContext)
@@ -25,11 +26,15 @@ final class MigrationTests: XCTestCase {
         try migrate(container: container, to: v2Model)
 
         // Then
-        let migratedContainer = loadPersistentContainer(storeURL: storeURL, model: v2Model)
+        // Load a new NSPersistentContainer because the old one will be
+        // unuseable after the migration.
+        let migratedContainer = loadPersistentContainer(storeURL: storeURL,
+                                                        model: v2Model)
 
-        // The post should have been deleted.
+        // The Post should have been deleted because of the
+        // DeleteObjectsMigrationPolicy defined in the PostToPost entity mapping.
         XCTAssertEqual(try countOfPosts(in: migratedContainer.viewContext), 0)
-        // The comment is left intact.
+        // The Comment is left intact.
         XCTAssertEqual(try countOfComments(in: migratedContainer.viewContext), 1)
     }
 }
