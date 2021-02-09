@@ -8,8 +8,8 @@ final class MigrationTests: XCTestCase {
         // Given
         let storeURL = makeTemporaryStoreURL()
         let v1Model = managedObjectModel(versionName: "App V1")
-        let v2Model = managedObjectModel(versionName: "App V2")
 
+        // Add test data for the App V1 store.
         let container = loadPersistentContainer(storeURL: storeURL,
                                                 model: v1Model)
 
@@ -23,7 +23,9 @@ final class MigrationTests: XCTestCase {
         XCTAssertEqual(try countOfComments(in: container.viewContext), 1)
 
         // When
-        try migrate(container: container, to: v2Model)
+        let v2Model = managedObjectModel(versionName: "App V2")
+
+        try migrate(storeURL: storeURL, from: v1Model, to: v2Model)
 
         // Then
         // Load a new NSPersistentContainer because the old one will be

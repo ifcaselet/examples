@@ -7,17 +7,27 @@ private let mainBundle = Bundle(for: ViewController.self)
 private let momdURL = mainBundle.url(forResource: "App", withExtension: "momd")!
 private let storeType = NSSQLiteStoreType
 
-/// Migrates the given `container` to a new model version.
-///
-/// - Parameter container: The `NSPersistentContainer` containing the
-///                        source store that will be migrated. This will
-///                        no longer be useable after the migration.
-/// - Parameter to: The model version (`.xcdatamodel`) to migrate to.
-func migrate(container: NSPersistentContainer,
-             to destinationModel: NSManagedObjectModel) throws {
-    let sourceModel = container.managedObjectModel
-    let sourceStoreURL = storeURL(from: container)
+/// Load an `NSPersistentContainer` using the given `storeURL`
+/// and `NSManagedObjectModel`.
+func loadPersistentContainer(storeURL: URL,
+                             model: NSManagedObjectModel) -> NSPersistentContainer {
+    let container = makePersistentContainer(storeURL: storeURL,
+                                            managedObjectModel: model)
+    container.loadPersistentStores { _, error in
+        XCTAssertNil(error)
+    }
 
+    return container
+}
+
+/// Migrates the store located at `storeURL`.
+///
+/// - Parameter storeURL: The URL of the Core Data store that will be migrated.
+/// - Parameter from: The current model version of `storeURL`.
+/// - Parameter to: The model version to migrate to.
+func migrate(storeURL: URL,
+             from sourceModel: NSManagedObjectModel,
+             to destinationModel: NSManagedObjectModel) throws {
     // Create a temporary store URL. This is where the migrated data
     // using the model will be located.
     let tempMigratedStoreURL = makeTemporaryStoreURL()
@@ -30,7 +40,7 @@ func migrate(container: NSPersistentContainer,
     let migrationManager = NSMigrationManager(sourceModel: sourceModel,
                                               destinationModel: destinationModel)
     // Migrate the `sourceStoreURL` to `tempMigratedStoreURL`.
-    try migrationManager.migrateStore(from: sourceStoreURL,
+    try migrationManager.migrateStore(from: storeURL,
                                       sourceType: storeType,
                                       options: nil,
                                       with: mappingModel,
@@ -40,8 +50,8 @@ func migrate(container: NSPersistentContainer,
 
     // Copy the `tempMigratedStoreURL` to the `sourceStoreURL` to
     // complete the migration.
-    try container.persistentStoreCoordinator.replacePersistentStore(
-        at: sourceStoreURL,
+    try NSPersistentStoreCoordinator().replacePersistentStore(
+        at: storeURL,
         destinationOptions: nil,
         withPersistentStoreFrom: tempMigratedStoreURL,
         sourceOptions: nil,
