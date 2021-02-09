@@ -1,0 +1,1 @@
+This is an example project for the post [Deleting Objects During a Core Data Migration](https://ifcaselet.com/deleting-objects-during-a-core-data-migration/).
