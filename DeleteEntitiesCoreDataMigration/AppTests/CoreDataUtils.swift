@@ -7,15 +7,7 @@ private let mainBundle = Bundle(for: ViewController.self)
 private let momdURL = mainBundle.url(forResource: "App", withExtension: "momd")!
 private let storeType = NSSQLiteStoreType
 
-/// Create and load a store using the given model version. The store will be located in a
-/// temporary directory.
-///
-/// - Parameter versionName: The name of the model (`.xcdatamodel`). For example, `"App V1"`.
-/// - Returns: An `NSPersistentContainer` that is loaded and ready for usage.
-func startPersistentContainer(_ versionName: String) throws -> NSPersistentContainer {
-    let storeURL = makeTemporaryStoreURL()
-    let model = managedObjectModel(versionName: versionName)
-
+func loadPersistentContainer(storeURL: URL, model: NSManagedObjectModel) -> NSPersistentContainer {
     let container = makePersistentContainer(storeURL: storeURL,
                                             managedObjectModel: model)
     container.loadPersistentStores { _, error in
@@ -31,19 +23,15 @@ func startPersistentContainer(_ versionName: String) throws -> NSPersistentConta
 ///                        migrated. This will no longer be useable after the migration.
 /// - Parameter versionName: The name of the model (`.xcdatamodel`) to migrate to. For example,
 ///                          `"App V2"`.
-///
-/// - Returns: A migrated `NSPersistentContainer` that is loaded and ready for usage.
-func migrate(container: NSPersistentContainer, to versionName: String) throws -> NSPersistentContainer {
-    // Define the source and destination `NSManagedObjectModels`.
+func migrate(container: NSPersistentContainer, to destinationModel: NSManagedObjectModel) throws {
     let sourceModel = container.managedObjectModel
-    let destinationModel = managedObjectModel(versionName: versionName)
-
     let sourceStoreURL = storeURL(from: container)
+
     // Create a temporary store URL. This is where the migrated data using the model
     // will be located.
     let tempMigratedStoreURL = makeTemporaryStoreURL()
 
-    // Retrieve the custom mapping model.
+    // Retrieve the custom mapping model that we defined.
     let mappingModel = NSMappingModel(from: [mainBundle],
                                       forSourceModel: sourceModel,
                                       destinationModel: destinationModel)!
@@ -66,16 +54,17 @@ func migrate(container: NSPersistentContainer, to versionName: String) throws ->
         withPersistentStoreFrom: tempMigratedStoreURL,
         sourceOptions: nil,
         ofType: storeType)
+}
 
-    // Create a new migrated container to load the store at `sourceStoreURL`
-    // using the new `destinationModel`.
-    let migratedContainer = makePersistentContainer(storeURL: sourceStoreURL,
-                                                    managedObjectModel: destinationModel)
-    migratedContainer.loadPersistentStores { _, error in
-        XCTAssertNil(error)
-    }
+func managedObjectModel(versionName: String) -> NSManagedObjectModel {
+    let url = momdURL.appendingPathComponent(versionName).appendingPathExtension("mom")
+    return NSManagedObjectModel(contentsOf: url)!
+}
 
-    return migratedContainer
+func makeTemporaryStoreURL() -> URL {
+    URL(fileURLWithPath: NSTemporaryDirectory())
+        .appendingPathComponent(UUID().uuidString)
+        .appendingPathExtension("sqlite")
 }
 
 private func makePersistentContainer(storeURL: URL,
@@ -93,18 +82,7 @@ private func makePersistentContainer(storeURL: URL,
     return container
 }
 
-private func managedObjectModel(versionName: String) -> NSManagedObjectModel {
-    let url = momdURL.appendingPathComponent(versionName).appendingPathExtension("mom")
-    return NSManagedObjectModel(contentsOf: url)!
-}
-
 private func storeURL(from container: NSPersistentContainer) -> URL {
     let description = container.persistentStoreDescriptions.first!
     return description.url!
-}
-
-private func makeTemporaryStoreURL() -> URL {
-    URL(fileURLWithPath: NSTemporaryDirectory())
-        .appendingPathComponent(UUID().uuidString)
-        .appendingPathExtension("sqlite")
 }
