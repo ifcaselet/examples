@@ -25,26 +25,25 @@ func startPersistentContainer(_ versionName: String) throws -> NSPersistentConta
     return container
 }
 
-/// Migrates the given `container` to a new store URL. The new (migrated) store will be located
-/// in a temporary directory.
+/// Migrates the given `container` to a new model version.
 ///
 /// - Parameter container: The `NSPersistentContainer` containing the source store that will be
-///                        migrated.
+///                        migrated. This will no longer be useable after the migration.
 /// - Parameter versionName: The name of the model (`.xcdatamodel`) to migrate to. For example,
 ///                          `"App V2"`.
 ///
-/// - Returns: A migrated `NSPersistentContainer` that is loaded and ready for usage. This
-///            container uses a different store URL than the original `container`.
+/// - Returns: A migrated `NSPersistentContainer` that is loaded and ready for usage.
 func migrate(container: NSPersistentContainer, to versionName: String) throws -> NSPersistentContainer {
     // Define the source and destination `NSManagedObjectModels`.
     let sourceModel = container.managedObjectModel
     let destinationModel = managedObjectModel(versionName: versionName)
 
     let sourceStoreURL = storeURL(from: container)
-    // Create a new temporary store URL. This is where the migrated data using the model
+    // Create a temporary store URL. This is where the migrated data using the model
     // will be located.
-    let destinationStoreURL = makeTemporaryStoreURL()
+    let tempMigratedStoreURL = makeTemporaryStoreURL()
 
+    // Retrieve the custom mapping model.
     let mappingModel = NSMappingModel(from: [mainBundle],
                                       forSourceModel: sourceModel,
                                       destinationModel: destinationModel)!
@@ -56,18 +55,27 @@ func migrate(container: NSPersistentContainer, to versionName: String) throws ->
                                       sourceType: storeType,
                                       options: nil,
                                       with: mappingModel,
-                                      toDestinationURL: destinationStoreURL,
+                                      toDestinationURL: tempMigratedStoreURL,
                                       destinationType: storeType,
                                       destinationOptions: nil)
 
-    // Load the store at `destinationStoreURL` and return the migrated container.
-    let destinationContainer = makePersistentContainer(storeURL: destinationStoreURL,
-                                                       managedObjectModel: destinationModel)
-    destinationContainer.loadPersistentStores { _, error in
+    // Replace the sourceStoreURL with the migrated destinationStoreURL to complete the migration.
+    try container.persistentStoreCoordinator.replacePersistentStore(
+        at: sourceStoreURL,
+        destinationOptions: nil,
+        withPersistentStoreFrom: tempMigratedStoreURL,
+        sourceOptions: nil,
+        ofType: storeType)
+
+    // Create a new migrated container to load the store at `sourceStoreURL`
+    // using the new `destinationModel`.
+    let migratedContainer = makePersistentContainer(storeURL: sourceStoreURL,
+                                                    managedObjectModel: destinationModel)
+    migratedContainer.loadPersistentStores { _, error in
         XCTAssertNil(error)
     }
 
-    return destinationContainer
+    return migratedContainer
 }
 
 private func makePersistentContainer(storeURL: URL,
