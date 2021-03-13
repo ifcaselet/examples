@@ -95,14 +95,14 @@
 		9A8AA5A725ABE6E000418C23 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				9A8AA5AC25ABE6E000418C23 /* ViewController.swift */,
+				9AEC156A25FD2C8900D5E759 /* AnotherViewController.swift */,
 				9A8AA5A825ABE6E000418C23 /* AppDelegate.swift */,
 				9A8AA5AA25ABE6E000418C23 /* SceneDelegate.swift */,
-				9A8AA5AC25ABE6E000418C23 /* ViewController.swift */,
 				9A8AA5AE25ABE6E000418C23 /* Main.storyboard */,
 				9A8AA5B425ABE6E100418C23 /* Assets.xcassets */,
 				9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */,
 				9A8AA5B925ABE6E100418C23 /* Info.plist */,
-				9AEC156A25FD2C8900D5E759 /* AnotherViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
