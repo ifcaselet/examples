@@ -12,16 +12,20 @@ final class AnotherViewController: UIViewController {
         view.backgroundColor = .purple
 
         var cancellable: AnyCancellable?
-        cancellable = SingletonTimerProvider.timer.sink { value in
+        cancellable = SingletonTimerProvider.timer.sink { [weak self] value in
             print("received timer value: \(value)")
-
-            self.dismiss(animated: true, completion: nil)
 
             // The if-clause is necessary to remove compiler warning that
             // the cancellable is not used.
             if cancellable != nil {
                 cancellable = nil
             }
+
+            guard let self = self else {
+                return
+            }
+
+            self.dismiss(animated: true, completion: nil)
         }
     }
 
