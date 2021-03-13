@@ -13,6 +13,8 @@ final class AnotherViewController: UIViewController {
 
         var cancellable: AnyCancellable?
         cancellable = SingletonTimerProvider.timer.sink { value in
+            print("received timer value: \(value)")
+
             self.dismiss(animated: true, completion: nil)
 
             // The if-clause is necessary to remove compiler warning that
