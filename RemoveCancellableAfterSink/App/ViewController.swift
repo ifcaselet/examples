@@ -1,5 +1,4 @@
 import UIKit
-import Combine
 
 class ViewController: UIViewController {
 
@@ -14,7 +13,9 @@ class ViewController: UIViewController {
     }
 
     @objc func buttonTapped(sender: UIButton) {
-        print("tapped")
+        let viewController = AnotherViewController()
+        let navigationViewController = UINavigationController(rootViewController: viewController)
+        show(navigationViewController, sender: self)
     }
 
 }

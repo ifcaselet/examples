@@ -13,6 +13,7 @@
 		9A8AA5B025ABE6E000418C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5AE25ABE6E000418C23 /* Main.storyboard */; };
 		9A8AA5B525ABE6E100418C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B425ABE6E100418C23 /* Assets.xcassets */; };
 		9A8AA5B825ABE6E100418C23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */; };
+		9AEC156B25FD2C8900D5E759 /* AnotherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC156A25FD2C8900D5E759 /* AnotherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9A8AA5BE25ABE6E100418C23 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8AA5C425ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8AA5C925ABE6E100418C23 /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AEC156A25FD2C8900D5E759 /* AnotherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				9A8AA5B425ABE6E100418C23 /* Assets.xcassets */,
 				9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */,
 				9A8AA5B925ABE6E100418C23 /* Info.plist */,
+				9AEC156A25FD2C8900D5E759 /* AnotherViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			files = (
 				9A8AA5AD25ABE6E000418C23 /* ViewController.swift in Sources */,
 				9A8AA5A925ABE6E000418C23 /* AppDelegate.swift in Sources */,
+				9AEC156B25FD2C8900D5E759 /* AnotherViewController.swift in Sources */,
 				9A8AA5AB25ABE6E000418C23 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
