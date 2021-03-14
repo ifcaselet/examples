@@ -28,11 +28,6 @@ final class AnotherViewController: UIViewController {
 
             print("Subscriptions = \(self.cancellables.count)")
 
-            let threshold = min(threshold, self.maxThreshold)
-            if threshold == self.maxThreshold {
-                print("Max threshold reached. There should be no active subscriptions after this.")
-            }
-
             if value.timeIntervalSince1970 - self.startingTimeInterval < min(threshold, self.maxThreshold) {
                 print("Recursively subscribing to timer")
                 self.subscribeToTimer(threshold: threshold + 3.0)
@@ -40,6 +35,7 @@ final class AnotherViewController: UIViewController {
                 if let cancellable = cancellable {
                     self.cancellables.remove(cancellable)
                 }
+                cancellable = nil
             }
         }
 
