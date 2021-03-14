@@ -2,7 +2,7 @@ import UIKit
 import Combine
 
 struct SingletonTimerProvider {
-    static let timer = Timer.publish(every: 5, on: .main, in: .default).autoconnect()
+    static let timer = Timer.publish(every: 3, on: .main, in: .default).autoconnect()
 }
 
 final class AnotherViewController: UIViewController {
