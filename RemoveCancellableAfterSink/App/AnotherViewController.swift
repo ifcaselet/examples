@@ -7,26 +7,33 @@ struct SingletonTimerProvider {
 
 final class AnotherViewController: UIViewController {
 
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .purple
 
         var cancellable: AnyCancellable?
-        cancellable = SingletonTimerProvider.timer.sink { [weak self] value in
+        cancellable = SingletonTimerProvider.timer.sink { [weak self, weak cancellable] value in
             print("received timer value: \(value)")
-
-            // The if-clause is necessary to remove compiler warning that
-            // the cancellable is not used.
-            if cancellable != nil {
-                cancellable = nil
-            }
 
             guard let self = self else {
                 return
             }
 
+            if let cancellable = cancellable {
+                self.cancellables.remove(cancellable)
+            }
+
             self.dismiss(animated: true, completion: nil)
         }
+
+        cancellables.insert(cancellable!)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        cancellables.removeAll()
     }
 
     deinit {
