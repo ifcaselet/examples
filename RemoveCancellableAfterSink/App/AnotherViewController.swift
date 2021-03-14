@@ -31,11 +31,6 @@ final class AnotherViewController: UIViewController {
         cancellables.insert(cancellable!)
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        cancellables.removeAll()
-    }
-
     deinit {
         print("deinit")
     }
