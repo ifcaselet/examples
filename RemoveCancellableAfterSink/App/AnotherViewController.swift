@@ -19,7 +19,8 @@ final class AnotherViewController: UIViewController {
     }
 
     private func subscribeToTimer(threshold: TimeInterval) {
-        SingletonTimerProvider.timer.sink { [weak self] value in
+        var cancellable: AnyCancellable?
+        cancellable = SingletonTimerProvider.timer.sink { [weak self] value in
             print("Received timer value: \(value)")
             guard let self = self else {
                 return
@@ -35,8 +36,14 @@ final class AnotherViewController: UIViewController {
             if value.timeIntervalSince1970 - self.startingTimeInterval < min(threshold, self.maxThreshold) {
                 print("Recursively subscribing to timer")
                 self.subscribeToTimer(threshold: threshold + 3.0)
+            } else {
+                if let cancellable = cancellable {
+                    self.cancellables.remove(cancellable)
+                }
             }
-        }.store(in: &cancellables)
+        }
+
+        cancellables.insert(cancellable!)
     }
 
     deinit {
