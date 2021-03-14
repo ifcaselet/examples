@@ -7,7 +7,7 @@ struct SingletonTimerProvider {
 
 final class AnotherViewController: UIViewController {
 
-    private var cancellables = Set<AnyCancellable>()
+    private var cancellables = [UUID: AnyCancellable]()
     private let startingTimeInterval = Date().timeIntervalSince1970
     private let maxThreshold = 10.0
 
@@ -19,8 +19,8 @@ final class AnotherViewController: UIViewController {
     }
 
     private func subscribeToTimer(threshold: TimeInterval) {
-        var cancellable: AnyCancellable?
-        cancellable = SingletonTimerProvider.timer.sink { [weak self] value in
+        let token = UUID()
+        let cancellable = SingletonTimerProvider.timer.sink { [weak self] value in
             print("Received timer value: \(value)")
             guard let self = self else {
                 return
@@ -32,14 +32,11 @@ final class AnotherViewController: UIViewController {
                 print("Recursively subscribing to timer")
                 self.subscribeToTimer(threshold: threshold + 3.0)
             } else {
-                if let cancellable = cancellable {
-                    self.cancellables.remove(cancellable)
-                }
-                cancellable = nil
+                self.cancellables.removeValue(forKey: token)
             }
         }
 
-        cancellables.insert(cancellable!)
+        cancellables[token] = cancellable
     }
 
     deinit {
