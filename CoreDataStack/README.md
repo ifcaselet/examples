@@ -1,0 +1,1 @@
+Example project for [Writing Unit Tests for Core Data Migrations](https://ifcaselet.com/writing-unit-tests-for-core-data-migrations/).
