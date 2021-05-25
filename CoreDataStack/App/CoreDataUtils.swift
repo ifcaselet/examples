@@ -14,7 +14,9 @@ func startPersistentContainer() throws -> NSPersistentContainer {
     let container = makePersistentContainer(storeURL: storeURL,
                                             managedObjectModel: model)
     container.loadPersistentStores { _, error in
-        fatalError(error?.localizedDescription ?? "")
+        if let error = error {
+            fatalError(error.localizedDescription)
+        }
     }
 
     return container
