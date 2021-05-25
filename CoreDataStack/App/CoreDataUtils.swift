@@ -6,11 +6,10 @@ private let storeType = NSSQLiteStoreType
 /// Create and load a store using the given model version. The store will be located in a
 /// temporary directory.
 ///
-/// - Parameter versionName: The name of the model (`.xcdatamodel`). For example, `"App V1"`.
 /// - Returns: An `NSPersistentContainer` that is loaded and ready for usage.
-func startPersistentContainer(_ versionName: String) throws -> NSPersistentContainer {
+func startPersistentContainer() throws -> NSPersistentContainer {
     let storeURL = makeTemporaryStoreURL()
-    let model = managedObjectModel(versionName: versionName)
+    let model = NSManagedObjectModel(contentsOf: momdURL)!
 
     let container = makePersistentContainer(storeURL: storeURL,
                                             managedObjectModel: model)
@@ -31,11 +30,6 @@ private func makePersistentContainer(storeURL: URL,
     container.persistentStoreDescriptions = [description]
 
     return container
-}
-
-private func managedObjectModel(versionName: String) -> NSManagedObjectModel {
-    let url = momdURL.appendingPathComponent(versionName).appendingPathExtension("mom")
-    return NSManagedObjectModel(contentsOf: url)!
 }
 
 private func storeURL(from container: NSPersistentContainer) -> URL {
