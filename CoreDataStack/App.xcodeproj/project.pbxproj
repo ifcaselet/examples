@@ -11,7 +11,6 @@
 		9A8AA5AB25ABE6E000418C23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AA5AA25ABE6E000418C23 /* SceneDelegate.swift */; };
 		9A8AA5AD25ABE6E000418C23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AA5AC25ABE6E000418C23 /* ViewController.swift */; };
 		9A8AA5B025ABE6E000418C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5AE25ABE6E000418C23 /* Main.storyboard */; };
-		9A8AA5B325ABE6E000418C23 /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B125ABE6E000418C23 /* App.xcdatamodeld */; };
 		9A8AA5B525ABE6E100418C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B425ABE6E100418C23 /* Assets.xcassets */; };
 		9A8AA5B825ABE6E100418C23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */; };
 		9A8AA5C325ABE6E100418C23 /* MigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AA5C225ABE6E100418C23 /* MigrationTests.swift */; };
@@ -41,7 +40,6 @@
 		9A8AA5AA25ABE6E000418C23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9A8AA5AC25ABE6E000418C23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A8AA5AF25ABE6E000418C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App V1.xcdatamodel"; sourceTree = "<group>"; };
 		9A8AA5B425ABE6E100418C23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A8AA5B725ABE6E100418C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A8AA5B925ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,7 +47,6 @@
 		9A8AA5C225ABE6E100418C23 /* MigrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationTests.swift; sourceTree = "<group>"; };
 		9A8AA5C425ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8AA5C925ABE6E100418C23 /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App V2.xcdatamodel"; sourceTree = "<group>"; };
 		9AE3432025ABF7640027965B /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +104,6 @@
 				9A8AA5B425ABE6E100418C23 /* Assets.xcassets */,
 				9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */,
 				9A8AA5B925ABE6E100418C23 /* Info.plist */,
-				9A8AA5B125ABE6E000418C23 /* App.xcdatamodeld */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -253,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8AA5AD25ABE6E000418C23 /* ViewController.swift in Sources */,
-				9A8AA5B325ABE6E000418C23 /* App.xcdatamodeld in Sources */,
 				9A8AA5A925ABE6E000418C23 /* AppDelegate.swift in Sources */,
 				9A8AA5AB25ABE6E000418C23 /* SceneDelegate.swift in Sources */,
 			);
@@ -582,20 +577,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9A8AA5B125ABE6E000418C23 /* App.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */,
-				9A8AA5B225ABE6E000418C23 /* App V1.xcdatamodel */,
-			);
-			currentVersion = 9A8BAEDF25ABED2200BB3D3F /* App V2.xcdatamodel */;
-			path = App.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9A8AA59D25ABE6E000418C23 /* Project object */;
 }
