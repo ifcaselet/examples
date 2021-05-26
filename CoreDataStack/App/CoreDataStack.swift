@@ -14,12 +14,13 @@ final class CoreDataStack {
         persistentContainer.viewContext
     }
 
-    func save() {
+    func save(_ completion: @escaping () -> ()) {
         writerContext.perform {
             self.writerContext.saveIfNeeded()
 
             self.viewContext.perform {
                 self.viewContext.saveIfNeeded()
+                completion()
             }
         }
     }
