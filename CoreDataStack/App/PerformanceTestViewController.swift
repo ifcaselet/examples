@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 
 final class PerformanceTestViewController: UIViewController {
 
@@ -22,15 +23,27 @@ final class PerformanceTestViewController: UIViewController {
 
         DispatchQueue.global().async {
             for index in 1...self.maxItemsSaved {
+
+                self.stack.insertArticle(content: UUID().uuidString)
+
                 DispatchQueue.main.async {
                     self.statusLabel.text = "Inserting \(index) of \(self.maxItemsSaved)"
                 }
             }
 
+
             DispatchQueue.main.async {
-                self.activityIndicatorView.stopAnimating()
-                self.statusLabel.text = "Done"
-                self.executionButton.isEnabled = true
+                self.statusLabel.text = "Saving..."
+            }
+
+
+            self.stack.save {
+                print("save completed")
+                DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
+                    self.statusLabel.text = "Done"
+                    self.executionButton.isEnabled = true
+                }
             }
         }
     }
