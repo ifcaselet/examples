@@ -15,12 +15,21 @@ final class CoreDataStack {
     }
 
     func save() {
-        writerContext.performAndWait {
-            writerContext.saveIfNeeded()
+        writerContext.perform {
+            self.writerContext.saveIfNeeded()
 
-            viewContext.performAndWait {
-                viewContext.saveIfNeeded()
+            self.viewContext.perform {
+                self.viewContext.saveIfNeeded()
             }
+        }
+    }
+}
+
+extension CoreDataStack {
+    func insertArticle(content: String) {
+        writerContext.perform {
+            let obj = NSEntityDescription.insertNewObject(forEntityName: "Article", into: self.writerContext)
+            obj.setValue(content, forKey: "content")
         }
     }
 }
