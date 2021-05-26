@@ -8,7 +8,7 @@ private let storeType = NSSQLiteStoreType
 ///
 /// - Returns: An `NSPersistentContainer` that is loaded and ready for usage.
 func startPersistentContainer() throws -> NSPersistentContainer {
-    let storeURL = makeTemporaryStoreURL()
+    let storeURL = makeStoreURL()
     let model = NSManagedObjectModel(contentsOf: momdURL)!
 
     let container = makePersistentContainer(storeURL: storeURL,
@@ -39,8 +39,13 @@ private func storeURL(from container: NSPersistentContainer) -> URL {
     return description.url!
 }
 
-private func makeTemporaryStoreURL() -> URL {
-    URL(fileURLWithPath: NSTemporaryDirectory())
+private func makeStoreURL() -> URL {
+    let documentsDirectory: URL = {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }()
+
+    return documentsDirectory
         .appendingPathComponent(UUID().uuidString)
         .appendingPathExtension("sqlite")
 }
