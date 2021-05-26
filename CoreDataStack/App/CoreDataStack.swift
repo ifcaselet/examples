@@ -19,7 +19,13 @@ final class CoreDataStack {
             self.writerContext.saveIfNeeded()
 
             self.viewContext.perform {
+                let startTime = Date()
+
                 self.viewContext.saveIfNeeded()
+
+                let elapsed = Date().timeIntervalSince(startTime)
+                print("time elapsed in main thread = \(elapsed)")
+
                 completion()
             }
         }

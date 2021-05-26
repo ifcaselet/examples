@@ -9,7 +9,7 @@ final class PerformanceTestViewController: UIViewController {
 
     private let stack = CoreDataStack()
 
-    private let maxItemsSaved: Int = 100_000
+    private let maxItemsSaved: Int = 50_000
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,21 +24,18 @@ final class PerformanceTestViewController: UIViewController {
         DispatchQueue.global().async {
             for index in 1...self.maxItemsSaved {
 
-                self.stack.insertArticle(content: UUID().uuidString)
+                self.stack.insertArticle(content: longString())
 
                 DispatchQueue.main.async {
                     self.statusLabel.text = "Inserting \(index) of \(self.maxItemsSaved)"
                 }
             }
 
-
             DispatchQueue.main.async {
                 self.statusLabel.text = "Saving..."
             }
 
-
             self.stack.save {
-                print("save completed")
                 DispatchQueue.main.async {
                     self.activityIndicatorView.stopAnimating()
                     self.statusLabel.text = "Done"
@@ -47,4 +44,13 @@ final class PerformanceTestViewController: UIViewController {
             }
         }
     }
+}
+
+private func longString() -> String {
+    var string = ""
+    for _ in 1..<Int.random(in: 100...900) {
+        string.append(UUID().uuidString)
+    }
+
+    return string
 }
