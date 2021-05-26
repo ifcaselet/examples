@@ -5,7 +5,7 @@ final class CoreDataStack {
     private let persistentContainer = try! startPersistentContainer()
 
     private lazy var writerContext: NSManagedObjectContext = {
-        let context = self.persistentContainer.newBackgroundContext()
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         context.parent = self.viewContext
         return context
     }()
