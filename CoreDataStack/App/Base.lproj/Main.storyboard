@@ -80,6 +80,7 @@
                     <navigationItem key="navigationItem" id="cyG-D4-yKg"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Egt-Iy-ieZ" id="xmj-Lf-nDv"/>
+                        <outlet property="executionButton" destination="RX3-Wo-NOK" id="S14-bK-PCr"/>
                         <outlet property="statusLabel" destination="5kC-lt-6OQ" id="LtJ-64-1oM"/>
                     </connections>
                 </viewController>

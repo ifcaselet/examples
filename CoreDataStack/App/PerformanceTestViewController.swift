@@ -2,10 +2,13 @@ import UIKit
 
 final class PerformanceTestViewController: UIViewController {
 
+    @IBOutlet private weak var executionButton: UIButton!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private weak var statusLabel: UILabel!
 
     private let stack = CoreDataStack()
+
+    private let maxItemsSaved: Int = 100_000
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +17,21 @@ final class PerformanceTestViewController: UIViewController {
     }
 
     @IBAction func executePerformanceTest() {
+        activityIndicatorView.startAnimating()
+        executionButton.isEnabled = false
 
+        DispatchQueue.global().async {
+            for index in 1...self.maxItemsSaved {
+                DispatchQueue.main.async {
+                    self.statusLabel.text = "Inserting \(index) of \(self.maxItemsSaved)"
+                }
+            }
+
+            DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()
+                self.statusLabel.text = "Done"
+                self.executionButton.isEnabled = true
+            }
+        }
     }
 }
