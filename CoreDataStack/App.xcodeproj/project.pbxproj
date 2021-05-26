@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0FDB08265E9E4600F99A97 /* PerformanceTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0FDB07265E9E4600F99A97 /* PerformanceTestViewController.swift */; };
 		9A536484265D89B7001A322B /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A536482265D89B7001A322B /* App.xcdatamodeld */; };
 		9A536488265D90E4001A322B /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3432025ABF7640027965B /* CoreDataUtils.swift */; };
 		9A536490265D9D1B001A322B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53648F265D9D1B001A322B /* CoreDataStack.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0FDB07265E9E4600F99A97 /* PerformanceTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTestViewController.swift; sourceTree = "<group>"; };
 		9A536483265D89B7001A322B /* App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App.xcdatamodel; sourceTree = "<group>"; };
 		9A53648F265D9D1B001A322B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9A8AA5A525ABE6E000418C23 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 				9A8AA5B925ABE6E100418C23 /* Info.plist */,
 				9A536482265D89B7001A322B /* App.xcdatamodeld */,
 				9A53648F265D9D1B001A322B /* CoreDataStack.swift */,
+				9A0FDB07265E9E4600F99A97 /* PerformanceTestViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				9A8AA5AD25ABE6E000418C23 /* ViewController.swift in Sources */,
 				9A536484265D89B7001A322B /* App.xcdatamodeld in Sources */,
+				9A0FDB08265E9E4600F99A97 /* PerformanceTestViewController.swift in Sources */,
 				9A8AA5A925ABE6E000418C23 /* AppDelegate.swift in Sources */,
 				9A536490265D9D1B001A322B /* CoreDataStack.swift in Sources */,
 				9A8AA5AB25ABE6E000418C23 /* SceneDelegate.swift in Sources */,
