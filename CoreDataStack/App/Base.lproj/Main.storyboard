@@ -65,16 +65,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time elapsed label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S42-h1-duv">
+                                <rect key="frame" x="138" y="539" width="138" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DGa-j0-61j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Egt-Iy-ieZ" firstAttribute="centerX" secondItem="DGa-j0-61j" secondAttribute="centerX" id="8cx-W9-VE3"/>
+                            <constraint firstItem="S42-h1-duv" firstAttribute="top" secondItem="5kC-lt-6OQ" secondAttribute="bottom" constant="16" id="KKc-zp-Tji"/>
                             <constraint firstItem="RX3-Wo-NOK" firstAttribute="centerX" secondItem="DGa-j0-61j" secondAttribute="centerX" id="NFP-lG-fLM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="RX3-Wo-NOK" secondAttribute="bottom" constant="185" id="Nbp-0W-JDM"/>
+                            <constraint firstItem="RX3-Wo-NOK" firstAttribute="top" secondItem="S42-h1-duv" secondAttribute="bottom" constant="33" id="ZOV-Gp-dWb"/>
                             <constraint firstItem="5kC-lt-6OQ" firstAttribute="centerX" secondItem="DGa-j0-61j" secondAttribute="centerX" id="bh6-Ab-XBg"/>
                             <constraint firstItem="5kC-lt-6OQ" firstAttribute="top" secondItem="Egt-Iy-ieZ" secondAttribute="bottom" constant="107" id="g8r-lq-LAb"/>
-                            <constraint firstItem="RX3-Wo-NOK" firstAttribute="top" secondItem="5kC-lt-6OQ" secondAttribute="bottom" constant="70" id="yLb-Gi-MWt"/>
+                            <constraint firstItem="S42-h1-duv" firstAttribute="centerX" secondItem="DGa-j0-61j" secondAttribute="centerX" id="tQd-m0-bW6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cyG-D4-yKg"/>
@@ -82,6 +90,7 @@
                         <outlet property="activityIndicatorView" destination="Egt-Iy-ieZ" id="xmj-Lf-nDv"/>
                         <outlet property="executionButton" destination="RX3-Wo-NOK" id="S14-bK-PCr"/>
                         <outlet property="statusLabel" destination="5kC-lt-6OQ" id="LtJ-64-1oM"/>
+                        <outlet property="timeElapsedLabel" destination="S42-h1-duv" id="YC1-yJ-oLX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOf-DU-V4v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -6,21 +6,24 @@ final class PerformanceTestViewController: UIViewController {
     @IBOutlet private weak var executionButton: UIButton!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet weak var timeElapsedLabel: UILabel!
 
     private let stack = CoreDataStack()
-    private lazy var secondsCounter = SecondsCounter(statusLabel)
+    private lazy var secondsCounter = SecondsCounter(timeElapsedLabel)
 
-    private let maxItemsSaved: Int = 50_000
+    private let maxItemsSaved: Int = 25_000
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         statusLabel.text = ""
+        timeElapsedLabel.text = ""
     }
 
     @IBAction func executePerformanceTest() {
         activityIndicatorView.startAnimating()
         executionButton.isEnabled = false
+        timeElapsedLabel.text = ""
 
         DispatchQueue.global().async {
             for index in 1...self.maxItemsSaved {
