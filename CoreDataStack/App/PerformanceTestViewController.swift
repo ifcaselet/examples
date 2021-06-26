@@ -9,7 +9,7 @@ final class PerformanceTestViewController: UIViewController {
     @IBOutlet weak var timeElapsedLabel: UILabel!
 
     private let stack = CoreDataStack()
-    private lazy var secondsCounter = SecondsCounter(timeElapsedLabel)
+    private lazy var secondsCounter = TimeElapsedCounter(timeElapsedLabel)
 
     private let maxItemsSaved: Int = 25_000
 
@@ -54,7 +54,7 @@ final class PerformanceTestViewController: UIViewController {
 
 /// Counts up and updates a label for how many seconds have elapsed since
 /// this was started.
-private class SecondsCounter {
+private class TimeElapsedCounter {
 
     private let label: UILabel
     private let timer = Timer.publish(every: 0.1, on: .main, in: .common)
