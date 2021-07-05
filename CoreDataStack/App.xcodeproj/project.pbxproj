@@ -81,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A630D3F2693343F007762E1 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				9A53648F265D9D1B001A322B /* CoreDataStack.swift */,
+				9AE3432025ABF7640027965B /* CoreDataUtils.swift */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
 		9A8AA59C25ABE6E000418C23 = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +112,7 @@
 		9A8AA5A725ABE6E000418C23 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				9AE3432025ABF7640027965B /* CoreDataUtils.swift */,
+				9A630D3F2693343F007762E1 /* CoreDataStack */,
 				9A8AA5A825ABE6E000418C23 /* AppDelegate.swift */,
 				9A8AA5AA25ABE6E000418C23 /* SceneDelegate.swift */,
 				9A8AA5AC25ABE6E000418C23 /* ViewController.swift */,
@@ -112,7 +121,6 @@
 				9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */,
 				9A8AA5B925ABE6E100418C23 /* Info.plist */,
 				9A536482265D89B7001A322B /* App.xcdatamodeld */,
-				9A53648F265D9D1B001A322B /* CoreDataStack.swift */,
 				9A0FDB07265E9E4600F99A97 /* PerformanceTestViewController.swift */,
 			);
 			path = App;
