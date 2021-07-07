@@ -1,35 +1,10 @@
 import CoreData
 
-final class CoreDataStack {
+protocol CoreDataStack {
+    var writerContext: NSManagedObjectContext { get }
 
-    private let persistentContainer = try! startPersistentContainer()
-
-    private lazy var writerContext: NSManagedObjectContext = {
-        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        context.parent = self.viewContext
-        return context
-    }()
-
-    private var viewContext: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
-
-    func save(_ completion: @escaping () -> ()) {
-        writerContext.perform {
-            self.writerContext.saveIfNeeded()
-
-            self.viewContext.perform {
-                let startTime = Date()
-
-                self.viewContext.saveIfNeeded()
-
-                let elapsed = Date().timeIntervalSince(startTime)
-                print("time elapsed in main thread = \(elapsed)")
-
-                completion()
-            }
-        }
-    }
+    func save(_ completion: @escaping () -> ())
+    func insertArticle(content: String)
 }
 
 extension CoreDataStack {

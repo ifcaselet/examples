@@ -8,7 +8,7 @@ final class PerformanceTestViewController: UIViewController {
     @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet weak var timeElapsedLabel: UILabel!
 
-    private let stack = CoreDataStack()
+    private let stack = NestedCoreDataStack()
     private lazy var secondsCounter = TimeElapsedCounter(timeElapsedLabel)
 
     private let maxItemsSaved: Int = 25_000

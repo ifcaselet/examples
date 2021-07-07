@@ -18,6 +18,7 @@
 		9A8AA5B525ABE6E100418C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B425ABE6E100418C23 /* Assets.xcassets */; };
 		9A8AA5B825ABE6E100418C23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AA5B625ABE6E100418C23 /* LaunchScreen.storyboard */; };
 		9A8AA5C325ABE6E100418C23 /* MigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AA5C225ABE6E100418C23 /* MigrationTests.swift */; };
+		9ACFB5F22695E59A006C2F3C /* NestedCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACFB5F12695E59A006C2F3C /* NestedCoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9A8AA5C225ABE6E100418C23 /* MigrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationTests.swift; sourceTree = "<group>"; };
 		9A8AA5C425ABE6E100418C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A8AA5C925ABE6E100418C23 /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ACFB5F12695E59A006C2F3C /* NestedCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedCoreDataStack.swift; sourceTree = "<group>"; };
 		9AE3432025ABF7640027965B /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 			children = (
 				9A53648F265D9D1B001A322B /* CoreDataStack.swift */,
 				9AE3432025ABF7640027965B /* CoreDataUtils.swift */,
+				9ACFB5F12695E59A006C2F3C /* NestedCoreDataStack.swift */,
 			);
 			path = CoreDataStack;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ACFB5F22695E59A006C2F3C /* NestedCoreDataStack.swift in Sources */,
 				9A8AA5AD25ABE6E000418C23 /* ViewController.swift in Sources */,
 				9A536484265D89B7001A322B /* App.xcdatamodeld in Sources */,
 				9A0FDB08265E9E4600F99A97 /* PerformanceTestViewController.swift in Sources */,
