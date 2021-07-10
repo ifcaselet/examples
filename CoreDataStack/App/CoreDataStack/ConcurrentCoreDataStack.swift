@@ -14,6 +14,9 @@ final class ConcurrentCoreDataStack: CoreDataStack {
     }()
 
     func save(_ completion: @escaping () -> ()) {
-        #warning("TODO")
+        writerContext.perform {
+            self.writerContext.saveIfNeeded()
+            completion()
+        }
     }
 }
