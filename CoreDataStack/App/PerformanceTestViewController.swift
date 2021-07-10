@@ -49,6 +49,10 @@ final class PerformanceTestViewController: UIViewController {
                     self.activityIndicatorView.stopAnimating()
                     self.statusLabel.text = "Done"
                     self.executionButton.isEnabled = true
+
+                    self.stack.fetchArticlesCount { count in
+                        self.numberOfObjectsSavedLabel.text = "\(count) objects saved"
+                    }
                 }
             }
         }
