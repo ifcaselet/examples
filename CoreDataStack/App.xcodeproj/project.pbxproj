@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A0FDB08265E9E4600F99A97 /* PerformanceTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0FDB07265E9E4600F99A97 /* PerformanceTestViewController.swift */; };
+		9A30BDE52699F99A00F8F0DB /* TimeElapsedCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30BDE42699F99A00F8F0DB /* TimeElapsedCounter.swift */; };
 		9A536484265D89B7001A322B /* App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A536482265D89B7001A322B /* App.xcdatamodeld */; };
 		9A536488265D90E4001A322B /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3432025ABF7640027965B /* CoreDataUtils.swift */; };
 		9A536490265D9D1B001A322B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A53648F265D9D1B001A322B /* CoreDataStack.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		9A0FDB07265E9E4600F99A97 /* PerformanceTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTestViewController.swift; sourceTree = "<group>"; };
+		9A30BDE42699F99A00F8F0DB /* TimeElapsedCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeElapsedCounter.swift; sourceTree = "<group>"; };
 		9A536483265D89B7001A322B /* App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App.xcdatamodel; sourceTree = "<group>"; };
 		9A53648F265D9D1B001A322B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9A8AA5A525ABE6E000418C23 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				9A8AA5B925ABE6E100418C23 /* Info.plist */,
 				9A536482265D89B7001A322B /* App.xcdatamodeld */,
 				9A0FDB07265E9E4600F99A97 /* PerformanceTestViewController.swift */,
+				9A30BDE42699F99A00F8F0DB /* TimeElapsedCounter.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A30BDE52699F99A00F8F0DB /* TimeElapsedCounter.swift in Sources */,
 				9ACFB5F22695E59A006C2F3C /* NestedCoreDataStack.swift in Sources */,
 				9A8AA5AD25ABE6E000418C23 /* ViewController.swift in Sources */,
 				9A536484265D89B7001A322B /* App.xcdatamodeld in Sources */,
