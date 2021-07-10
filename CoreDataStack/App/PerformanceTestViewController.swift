@@ -53,6 +53,10 @@ final class PerformanceTestViewController: UIViewController {
                     self.stack.fetchArticlesCount { count in
                         self.numberOfObjectsSavedLabel.text = "\(count) objects saved"
                     }
+
+                    self.stack.fetchFirstFewArticles { content in
+                        print("Some of the objects saved: \(content)")
+                    }
                 }
             }
         }

@@ -23,6 +23,20 @@ extension CoreDataStack {
             result(count)
         }
     }
+
+    func fetchFirstFewArticles(result: @escaping ([String]) -> ()) {
+        self.readerContext.perform {
+            let request = NSFetchRequest<NSManagedObject>(entityName: "Article")
+            request.fetchLimit = 5
+
+            let fetchResult = (try? readerContext.fetch(request)) ?? [NSManagedObject]()
+            let content = fetchResult.compactMap { obj in
+                obj.value(forKey: "content") as? String
+            }
+
+            result(content)
+        }
+    }
 }
 
 extension NSManagedObjectContext {
