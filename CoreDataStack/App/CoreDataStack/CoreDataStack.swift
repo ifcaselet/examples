@@ -15,6 +15,14 @@ extension CoreDataStack {
             obj.setValue(content, forKey: "content")
         }
     }
+
+    func fetchArticlesCount(result: @escaping (Int) -> ()) {
+        self.readerContext.perform {
+            let request = NSFetchRequest<NSManagedObject>(entityName: "Article")
+            let count = (try? readerContext.count(for: request)) ?? 0
+            result(count)
+        }
+    }
 }
 
 extension NSManagedObjectContext {
