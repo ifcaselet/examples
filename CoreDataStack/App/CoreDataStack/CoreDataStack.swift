@@ -2,6 +2,7 @@ import CoreData
 
 protocol CoreDataStack {
     var writerContext: NSManagedObjectContext { get }
+    var readerContext: NSManagedObjectContext { get }
 
     func save(_ completion: @escaping () -> ())
     func insertArticle(content: String)

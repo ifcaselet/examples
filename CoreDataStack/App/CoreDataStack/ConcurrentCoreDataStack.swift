@@ -3,7 +3,7 @@ import CoreData
 final class ConcurrentCoreDataStack: CoreDataStack {
     private let persistentContainer = try! startPersistentContainer()
 
-    private var parentContext: NSManagedObjectContext {
+    var readerContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
 

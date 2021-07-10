@@ -7,6 +7,10 @@ final class NestedCoreDataStack: CoreDataStack {
         persistentContainer.viewContext
     }
 
+    var readerContext: NSManagedObjectContext {
+        persistentContainer.viewContext
+    }
+
     private(set) lazy var writerContext: NSManagedObjectContext = {
         let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         context.parent = self.parentContext
