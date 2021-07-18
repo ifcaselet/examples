@@ -17,13 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="D9z-k1-B9V">
-                                <rect key="frame" x="40" y="251" width="334" height="30"/>
+                                <rect key="frame" x="110" y="251" width="194" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="vJB-bh-EeB"/>
                                 </constraints>
-                                <state key="normal" title="Test Core Data Stack with viewContext as parent"/>
+                                <state key="normal" title="Test nested Core Data stack"/>
                                 <connections>
-                                    <segue destination="gUX-Du-nqe" kind="show" id="JVh-S8-WBG"/>
+                                    <segue destination="gUX-Du-nqe" kind="show" destinationCreationSelector="makeNestedPerformanceViewController:" id="JVh-S8-WBG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lck-jT-eiT">
+                                <rect key="frame" x="96" y="324" width="222" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="pgN-cQ-0VT"/>
+                                </constraints>
+                                <state key="normal" title="Test concurrent Core Data stack"/>
+                                <connections>
+                                    <segue destination="gUX-Du-nqe" kind="show" destinationCreationSelector="makeConcurrentPerformanceViewController:" id="BUm-cR-K2X"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -31,8 +41,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="D9z-k1-B9V" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="5vP-hL-t2v"/>
+                            <constraint firstItem="lck-jT-eiT" firstAttribute="centerX" secondItem="D9z-k1-B9V" secondAttribute="centerX" id="8Jh-ws-NPN"/>
                             <constraint firstItem="D9z-k1-B9V" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="207" id="8Li-BP-XJY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D9z-k1-B9V" secondAttribute="trailing" constant="40" id="Fuh-Uj-MJD"/>
+                            <constraint firstItem="lck-jT-eiT" firstAttribute="top" secondItem="D9z-k1-B9V" secondAttribute="bottom" constant="43" id="kFc-Rc-edJ"/>
                             <constraint firstItem="D9z-k1-B9V" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tJG-ho-3AQ"/>
                         </constraints>
                     </view>
@@ -107,6 +119,9 @@
             <point key="canvasLocation" x="728.98550724637687" y="107.8125"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BUm-cR-K2X"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

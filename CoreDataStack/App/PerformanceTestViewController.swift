@@ -9,10 +9,20 @@ final class PerformanceTestViewController: UIViewController {
     @IBOutlet private weak var timeElapsedLabel: UILabel!
     @IBOutlet private weak var numberOfObjectsSavedLabel: UILabel!
 
-    private let stack = NestedCoreDataStack()
-    private lazy var secondsCounter = TimeElapsedCounter(timeElapsedLabel)
+    private let stack: CoreDataStack
 
+    private lazy var secondsCounter = TimeElapsedCounter(timeElapsedLabel)
     private let maxItemsSaved: Int = 25_000
+
+    init?(_ coder: NSCoder, stack: CoreDataStack) {
+        self.stack = stack
+
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
